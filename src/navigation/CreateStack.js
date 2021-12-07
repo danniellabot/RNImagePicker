@@ -1,12 +1,11 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { Button, StyleSheet, View } from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {Button, StyleSheet, View} from 'react-native';
 import CreateScreen from '../general/CreateScreen';
 
 const Stack = createStackNavigator();
 
-export default function CreateStack({ navigation }) {
-
+export default function CreateStack({navigation}) {
   return (
     <Stack.Navigator
       // screenOptions={{
@@ -22,11 +21,10 @@ export default function CreateStack({ navigation }) {
       //   },
       // }}
       screenOptions={{
+        //
         headerShown: false,
-      }}
-    >
-      <Stack.Screen name='CreateScreen' component={CreateScreen}
-      />
+      }}>
+      <Stack.Screen name="CreateScreen" component={CreateScreen} />
     </Stack.Navigator>
   );
 }
@@ -34,9 +32,8 @@ export default function CreateStack({ navigation }) {
 const styles = StyleSheet.create({
   iconRight: {
     marginRight: 20,
-
   },
   iconLeft: {
-    marginLeft: 20
+    marginLeft: 20,
   },
 });
