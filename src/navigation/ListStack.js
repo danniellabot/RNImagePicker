@@ -1,12 +1,11 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { Button, StyleSheet, View } from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {Button, StyleSheet, View, Platform} from 'react-native';
 import ListScreen from '../general/ListScreen';
 
 const Stack = createStackNavigator();
 
-export default function ListStack({ navigation }) {
-
+export default function ListStack({navigation}) {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -20,10 +19,8 @@ export default function ListStack({ navigation }) {
           fontSize: 20,
           fontStyle: 'normal',
         },
-      }}
-    >
-      <Stack.Screen name='ListScreen' component={ListScreen}
-      />
+      }}>
+      <Stack.Screen name="ListScreen" component={ListScreen} />
     </Stack.Navigator>
   );
 }
@@ -31,9 +28,8 @@ export default function ListStack({ navigation }) {
 const styles = StyleSheet.create({
   iconRight: {
     marginRight: 20,
-
   },
   iconLeft: {
-    marginLeft: 20
+    marginLeft: 20,
   },
 });
