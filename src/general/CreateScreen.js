@@ -35,8 +35,8 @@ const SelectPhoto = () => {
 
   const Placeholder = () => {
     return (
-      <View>
-        <View
+      <View style={styles.container}>
+        {/* <View
           style={[
             styles.suggestionSection,
             {
@@ -49,7 +49,7 @@ const SelectPhoto = () => {
           <Text style={[styles.sectionTitle, {marginBottom: 10}]}>
             Create Receipt Item
           </Text>
-        </View>
+        </View> */}
         <LottieView
           ref={animation => {
             this.animation = animation;
@@ -60,37 +60,39 @@ const SelectPhoto = () => {
           speed={2}
           style={{width: 400, height: 400, backgroundColor: 'transparent'}}
         />
-        <Button
-          title="Upload from Image Library"
-          onPress={() =>
-            onButtonPress('library', {
-              noData: true,
-              mediaType: 'photo',
-              quality: 0.5,
-            })
-          }
-          buttonStyle={styles.button}
-          titleStyle={styles.buttonTitle}
-        />
-        <Button
-          title="Take Photo from Camera"
-          onPress={() =>
-            onButtonPress('capture', {
-              noData: true,
-              mediaType: 'photo',
-              quality: 0.5,
-            })
-          }
-          buttonStyle={[styles.button, {backgroundColor: '#B35CFF'}]}
-          titleStyle={styles.buttonTitle}
-        />
+        <View style={styles.buttonsContainer}>
+          <Button
+            title="Upload from Image Library"
+            onPress={() =>
+              onButtonPress('library', {
+                noData: true,
+                mediaType: 'photo',
+                quality: 0.5,
+              })
+            }
+            buttonStyle={styles.button}
+            titleStyle={styles.buttonTitle}
+          />
+          <Button
+            title="Take Photo from Camera"
+            onPress={() =>
+              onButtonPress('capture', {
+                noData: true,
+                mediaType: 'photo',
+                quality: 0.5,
+              })
+            }
+            buttonStyle={[styles.button, {backgroundColor: '#B35CFF'}]}
+            titleStyle={styles.buttonTitle}
+          />
+        </View>
       </View>
     );
   };
 
   const RenderImage = () => {
     return (
-      <View>
+      <View style={styles.container}>
         {response?.assets.map(({uri}) => (
           <View key={uri} style={styles.image}>
             <Image
@@ -103,13 +105,13 @@ const SelectPhoto = () => {
         ))}
         <View style={styles.buttonsContainer}>
           <Button
-            title="Next"
+            title="Analyse this receipt"
             onPress={() => console.log('OK!')}
             buttonStyle={styles.button}
             titleStyle={styles.buttonTitle}
           />
           <Button
-            title="Choose another photo"
+            title="Choose different photo"
             onPress={() => setResponse('')}
             buttonStyle={[styles.button, {backgroundColor: '#B35CFF'}]}
             titleStyle={styles.buttonTitle}
@@ -120,7 +122,12 @@ const SelectPhoto = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        justifyContent: 'flex-end',
+        marginBottom: ScreenHeight * 0.1,
+      }}>
       {response?.assets && response.assets.length > 0 ? (
         <RenderImage />
       ) : (
@@ -142,13 +149,12 @@ export default class CreateScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'column',
-    justifyContent: 'center',
+    // flexDirection: 'column-reverse',
     alignItems: 'center',
+    justifyContent: 'flex-end',
   },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+  buttonsContainer: {
+    //justifyContent: 'flex-end',
     alignItems: 'center',
   },
   button: {

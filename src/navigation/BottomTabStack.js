@@ -17,11 +17,12 @@ export default function BottomTabStack() {
       initialRouteName="Home"
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: '#4A90E2',
+        // tabBarActiveTintColor: '#4A90E2',
+        tabBarActiveTintColor: '#02D4B3',
         tabBarInactiveTintColor: 'gray',
         tabBarLabelStyle: {
           fontSize: 12,
-          fontFamily: Platform.OS == 'ios' ? 'Helvetica' : 'Roboto',
+          fontFamily: Platform.OS === 'ios' ? 'Helvetica' : 'Roboto',
           fontWeight: 'normal',
           fontStyle: 'normal',
           letterSpacing: 0,

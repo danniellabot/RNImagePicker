@@ -22,7 +22,7 @@ export default function CreateStack({navigation}) {
       // }}
       screenOptions={{
         //
-        headerShown: false,
+        headerTitle: 'Create Receipt Item',
       }}>
       <Stack.Screen name="CreateScreen" component={CreateScreen} />
     </Stack.Navigator>
